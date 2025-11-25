@@ -19,3 +19,8 @@ variable "base_url" {
   type = string
   description = "Dominio del shortener"
 }
+
+variable "lambda_s3_bucket" {
+    type = string
+    default = "lambda-url-shortener-bucket"
+}

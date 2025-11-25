@@ -3,9 +3,10 @@ output "api_url" {
 }
 
 output "lambda_arn" {
-    value = "aws_lambda_function.shorten.arn"
+  value = aws_lambda_function.shorten.arn
 }
 
+
 output "table_name" {
-    value =  "var.table_name"
+  value = var.url_table
 }

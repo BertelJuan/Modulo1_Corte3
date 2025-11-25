@@ -10,8 +10,3 @@ resource "aws_s3_bucket_versioning" "lambda_versioning" {
     status = "Enabled"
   }
 }
-
-variable "lambda_s3_bucket" {
-    type = string
-    default = "lambda-url-shortener-bucket"
-}
