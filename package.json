@@ -1,0 +1,16 @@
+{
+    "name": "Modulo1-shortener",
+    "version": "1.0.0",
+    "description": "Lambda para acortar URLs con DynamoDB",
+    "main": "src/handler.js",
+    "type": "module",
+    "scripts": {
+        "build": "zip -r shortener.zip ./src node_modules package.json",
+        "test": "echo \"No tests yet\""
+    },
+    "dependencies": {
+        "@aws-sdk/client-dynamodb": "^3.939.0",
+        "@aws-sdk/util-dynamodb": "^3.939.0",
+        "nanoid": "^4.0.0"
+    }
+}
