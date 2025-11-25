@@ -18,15 +18,11 @@ jobs:
                 node-version: 20
             
             - name: Install dependencies
-              run: npm install
-              working-directory: .
+              run: npm ci
 
             - name: Zip Lambda
               run: |
-                zip -r lambda.zip . \
-                  -x "terraform/*" \
-                  -x ".git/*" \
-                  -x ".github/*"
+                zip -r lambda.zip src node_modules package.json package-lock.json
 
             - name: Configure AWS credentials
               uses: aws-actions/configure-aws-credentials@v4
