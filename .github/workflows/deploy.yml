@@ -19,12 +19,12 @@ jobs:
             
             - name: Install dependencies
               run: npm install
-              working-directory: .
+              working-directory: Modulo1_Corte3
 
-            - name: Zip Lambda
+            - name: Zip Lambda correctly
               run: |
-                cd src
-                zip -r ../lambda.zip ./*
+                zip -r lambda.zip src node_modules package.json
+              working-directory: Modulo1_Corte3
 
             - name: Configure AWS credentials
               uses: aws-actions/configure-aws-credentials@v4
