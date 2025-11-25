@@ -1,6 +1,6 @@
-import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb";
-import { marshall } from "@aws-sdk/util-dynamodb";
-import { isValidUrl, generateCode } from "./utils.js"
+const { DynamoDBClient, PutItemCommand } = require ("@aws-sdk/client-dynamodb");
+const { marshall } = require ("@aws-sdk/util-dynamodb");
+const { isValidUrl, generateCode } = require ("./utils.js")
 
 const client = new DynamoDBClient({ region: process.env.AWS_REGION });
 

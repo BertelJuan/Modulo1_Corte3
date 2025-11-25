@@ -1,7 +1,7 @@
 resource "aws_lambda_function" "shorten" {
   function_name = "shortener-lambda-v2"
   role = aws_iam_role.lambda_role.arn
-  handler = "handler.handler"
+  handler = "src/handler.handler"
   runtime = "nodejs18.x"
 
   memory_size = 256

@@ -1,8 +1,8 @@
-import { nanoid } from "nanoid";
+const { nanoid } = require ("nanoid");
 
 
 // Esto para validar si el string es una URL valida.
-export function isValidUrl(url) {
+function isValidUrl(url) {
     try {
         new URL(url);
         return true;
@@ -12,6 +12,8 @@ export function isValidUrl(url) {
 }
 
 // Esto es para generar el code corto.
-export function generateCode() {
+function generateCode() {
     return nanoid(6);
 }
+
+module.exports = { isValidUrl, generateCode };
