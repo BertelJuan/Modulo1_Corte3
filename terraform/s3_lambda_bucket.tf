@@ -14,6 +14,5 @@ resource "aws_s3_bucket_versioning" "lambda_versioning" {
 resource "aws_s3_object" "lambda_zip" {
   bucket = aws_s3_bucket.lambda_bucket.bucket
   key    = var.lambda_s3_key
-  source = "${path.module}/../lambda.zip"
-  etag   = filemd5("${path.module}/../lambda.zip")
+  source = null
 }

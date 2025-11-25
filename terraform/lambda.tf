@@ -15,7 +15,7 @@ resource "aws_lambda_function" "shorten" {
   }
 
   s3_bucket = aws_s3_bucket.lambda_bucket.bucket
-  s3_key = aws_s3_object.lambda_zip.key
+  s3_key = var.lambda_s3_key
 
   depends_on = [ 
     aws_iam_role.lambda_role, 

@@ -23,6 +23,10 @@ jobs:
             - name: Zip Lambda
               run: |
                 zip -r lambda.zip src node_modules package.json package-lock.json
+            
+            - name: Upload ZIP to S3 bucket
+              run: aws s3 cp lambda.zip s3://${{ secrets.LAMBDA_BUCKET_NAME }}/${{ secrets.LAMBDA_S3_KEY }}
+
 
             - name: Configure AWS credentials
               uses: aws-actions/configure-aws-credentials@v4
