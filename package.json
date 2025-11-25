@@ -3,7 +3,6 @@
     "version": "1.0.0",
     "description": "Lambda para acortar URLs con DynamoDB",
     "main": "src/handler.js",
-    "type": "module",
     "scripts": {
         "build": "zip -r shortener.zip ./src node_modules package.json",
         "test": "echo \"No tests yet\""

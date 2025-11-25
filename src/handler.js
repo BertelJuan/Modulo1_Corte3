@@ -4,7 +4,7 @@ const { isValidUrl, generateCode } = require ("./utils.js")
 
 const client = new DynamoDBClient({ region: process.env.AWS_REGION });
 
-export const handler = async (event) => {
+module.exports.handler = async (event) => {
     try {
         const body = JSON.parse(event.body);
         const originalUrl = body.url;
