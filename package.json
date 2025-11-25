@@ -10,6 +10,7 @@
     "dependencies": {
         "@aws-sdk/client-dynamodb": "^3.939.0",
         "@aws-sdk/util-dynamodb": "^3.939.0",
-        "nanoid": "^4.0.2"
+        "sharp": "^0.33.0",
+        "nanoid": "^5.0.1"
     }
 }
