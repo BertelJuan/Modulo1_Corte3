@@ -30,8 +30,7 @@ jobs:
                  aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
                  aws-region: ${{ secrets.AWS_REGION }}
 
-            - name: Upload ZIP to s3
-              run: aws s3 cp lambda.zip s3://lambda-url-shortener-bucket/lambda.zip --region us-west-1
+            
 
             - name: Install Terraform
               uses: hashicorp/setup-terraform@v3
