@@ -2,6 +2,8 @@ const { DynamoDBClient, PutItemCommand } = require ("@aws-sdk/client-dynamodb");
 const { marshall } = require ("@aws-sdk/util-dynamodb");
 const { isValidUrl, generateCode } = require ("./utils.js")
 
+const client = new DynamoDBClient({});
+
 exports.handler = async (event) => {
     try {
         const body = JSON.parse(event.body);
