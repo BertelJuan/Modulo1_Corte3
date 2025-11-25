@@ -24,20 +24,19 @@ jobs:
               run: |
                 zip -r lambda.zip src node_modules package.json package-lock.json
             
-            - name: Upload ZIP to S3 bucket
-              run: aws s3 cp lambda.zip s3://${{ secrets.LAMBDA_BUCKET_NAME }}/${{ secrets.LAMBDA_S3_KEY }}
-
-
             - name: Configure AWS credentials
               uses: aws-actions/configure-aws-credentials@v4
               with:
-                 aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-                 aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-                 aws-region: ${{ secrets.AWS_REGION }}
+                aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                aws-region: ${{ secrets.AWS_REGION }}
+                  
+            - name: Upload ZIP to S3 bucket
+              run: aws s3 cp lambda.zip s3://${{ secrets.LAMBDA_S3_BUCKET }}/lambda.zip
 
             - name: Install Terraform
               uses: hashicorp/setup-terraform@v3
-
+                  
             - name: Terraform Init
               working-directory: terraform
               run: terraform init
