@@ -12,6 +12,7 @@ variable "url_table" {
 variable "lambda_s3_key" {
   type = string
   description = "Ruta para el ZIP que subira por CI/CD"
+  default = "lambda.zip"
 }
 
 variable "base_url" {
