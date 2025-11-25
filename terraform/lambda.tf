@@ -14,12 +14,11 @@ resource "aws_lambda_function" "shorten" {
     }
   }
 
-  s3_bucket = aws_s3_bucket.lambda_bucket.bucket
-  s3_key = var.lambda_s3_key
+  filename         = "${path.module}/../lambda.zip"
+  source_code_hash = filebase64sha256("${path.module}/../lambda.zip")
 
   depends_on = [ 
     aws_iam_role.lambda_role, 
-    aws_iam_role_policy.lambda_policy,
-    aws_s3_object.lambda_zip
+    aws_iam_role_policy.lambda_policy    
   ]
 }
