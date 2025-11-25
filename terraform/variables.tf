@@ -9,11 +9,6 @@ variable "url_table" {
   default = "sortener-urls"
 }
 
-variable "lambda_s3_bucket" {
-  type = string
-  description = "Bucket donde se subira el ZIP de la lambda"
-}
-
 variable "lambda_s3_key" {
   type = string
   description = "Ruta para el ZIP que subira por CI/CD"
