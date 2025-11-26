@@ -7,14 +7,12 @@ Este proyecto implementa un sistema completo de acortamiento de URLs dividido en
 
 # 📦 Arquitectura del Proyecto
 
-Módulo 1 ───> DynamoDB <─── Módulo 2
-│ │
-
-└──────────────> Módulo 3
-│
-Módulo 4 (Frontend Stats)
-Módulo 5 (Frontend Acortador)
-
+/modulo1-shortener
+/modulo2-redirect
+/modulo3-stats
+/modulo4-frontend-stats
+/modulo5-frontend-shortener
+/shared/dynamodb.tf
 
 Todos los módulos despliegan por separado usando **Terraform + GitHub Actions**, pero comparten la misma tabla.
 
