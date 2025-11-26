@@ -9,6 +9,7 @@ Este proyecto implementa un sistema completo de acortamiento de URLs dividido en
 
 Módulo 1 ───> DynamoDB <─── Módulo 2
 │ │
+
 └──────────────> Módulo 3
 │
 Módulo 4 (Frontend Stats)
@@ -37,7 +38,6 @@ Genera un código único y almacena la información en DynamoDB.
   - `code`
   - `originalUrl`
   - `createdAt`
-  - `clicks` (opcional)
 - Devuelve:
 ```json
 {
