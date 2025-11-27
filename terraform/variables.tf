@@ -18,6 +18,7 @@ variable "lambda_s3_key" {
 variable "base_url" {
   type = string
   description = "Dominio del shortener"
+  default = "https://d1w6gh2z51fb1o.cloudfront.net"
 }
 
 variable "lambda_s3_bucket" {
