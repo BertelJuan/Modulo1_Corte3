@@ -47,10 +47,15 @@ resource "aws_api_gateway_deployment" "deploy" {
 
 
 resource "aws_api_gateway_stage" "prod" {
-  stage_name = "prod"
+  stage_name  = "prod"
   rest_api_id = aws_api_gateway_rest_api.api.id
   deployment_id = aws_api_gateway_deployment.deploy.id
+
+  lifecycle {
+    ignore_changes = [deployment_id]
+  }
 }
+
 
 resource "aws_api_gateway_method" "options_shorten" {
   rest_api_id = aws_api_gateway_rest_api.api.id
