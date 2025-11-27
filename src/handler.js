@@ -4,6 +4,12 @@ const { isValidUrl, generateCode } = require ("./utils.js")
 
 const client = new DynamoDBClient({});
 
+const corsHeaders = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Headers": "Content-Type",
+    "Access-Control-Allow-Methods": "OPTIONS,POST",
+}
+
 exports.handler = async (event) => {
     try {
         const body = JSON.parse(event.body);
@@ -12,6 +18,7 @@ exports.handler = async (event) => {
         if (!originalUrl || !isValidUrl(originalUrl)) {
             return {
                 statusCode: 400,
+                headers: corsHeaders,
                 body: JSON.stringify({ error: "URL invalida" })
             };
         }
@@ -38,6 +45,7 @@ exports.handler = async (event) => {
 
         return {
             statusCode: 200,
+            headers: corsHeaders,
             body: JSON.stringify({
                 shortUrl,
                 code,
