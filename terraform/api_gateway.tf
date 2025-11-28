@@ -33,10 +33,12 @@ resource "aws_lambda_permission" "api_permission" {
 }
 
 resource "aws_api_gateway_deployment" "deploy" {
-  //depends_on = [
-    //aws_api_gateway_integration.shorten_integration,
-    //aws_api_gateway_integration.options_shorten_integration
-  //]
+  depends_on = [
+    aws_api_gateway_integration.shorten_integration,
+    aws_api_gateway_integration.options_shorten_integration,
+    aws_api_gateway_integration_response.post_integration_200,
+    aws_api_gateway_integration_response.options_integration_200
+  ]
 
   rest_api_id = aws_api_gateway_rest_api.api.id
   triggers = {
