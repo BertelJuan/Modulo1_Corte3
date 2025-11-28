@@ -44,4 +44,4 @@ jobs:
 
             - name: Terraform Apply
               working-directory: terraform
-              run: terraform apply -auto-approve -var="base_url=http://localhost"
+              run: terraform apply -auto-approve -var="base_url=https://jyhfwwgbt3.execute-api.us-west-1.amazonaws.com/prod"
