@@ -39,12 +39,14 @@ resource "aws_api_gateway_deployment" "deploy" {
   ]
 
   rest_api_id = aws_api_gateway_rest_api.api.id
-
   triggers = {
-    redeploy = sha1(jsonencode(aws_api_gateway_rest_api.api))
+    redeploy = timestamp()
+  }
+  
+  lifecycle {
+    create_before_destroy = true
   }
 }
-
 
 resource "aws_api_gateway_stage" "prod" {
   stage_name  = "prod"
@@ -55,7 +57,6 @@ resource "aws_api_gateway_stage" "prod" {
     ignore_changes = [deployment_id]
   }
 }
-
 
 resource "aws_api_gateway_method" "options_shorten" {
   rest_api_id = aws_api_gateway_rest_api.api.id
