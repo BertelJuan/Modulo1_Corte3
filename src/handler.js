@@ -30,7 +30,8 @@ exports.handler = async (event) => {
             code: code,
             originalUrl: originalUrl,
             createdAt: Date.now(),
-            visits: 0
+            visits: 0,
+            visit_history: []
         };
 
         await client.send(
