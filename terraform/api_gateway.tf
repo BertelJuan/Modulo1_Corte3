@@ -75,6 +75,10 @@ resource "aws_api_gateway_integration" "options_shorten_integration" {
 }
 
 resource "aws_api_gateway_method_response" "options_200" {
+  depends_on = [
+    aws_api_gateway_integration.shorten_integration
+  ]
+  
   rest_api_id = aws_api_gateway_rest_api.api.id
   resource_id = aws_api_gateway_resource.shorten.id
   http_method = aws_api_gateway_method.options_shorten.http_method
